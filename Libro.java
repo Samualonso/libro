@@ -61,7 +61,7 @@ public class Libro {
         }
         else{
             System.out.println("No se ha podido modificar el número de referencia, se deben introducir al menos 3 caracteres");
-            numeroReferencia = "";
+            numeroReferencia = "ZZZ";
         }
     }
     
@@ -84,17 +84,16 @@ public class Libro {
     public String getDetalles(){
         String detalles = "";
         String libroTexto = "";
+        
         if (esLibroDeTexto == true){
             libroTexto = "Si";
         }
         else{
             libroTexto = "No"; 
         }
+        
         if (numeroReferencia != ""){
-            detalles ="Titulo del libro: " + titulo + ", Autor del libro: " + autor + ", Número de páginas: " + numeroPaginas + ", Número de Referencia: " + numeroReferencia + ", Número de veces prestado: " + vecesPrestado + ", Es un libro de texto: " + libroTexto;
-        } 
-        else {
-           detalles ="Titulo del libro: " + titulo + ", Autor del libro: " + autor + ", Número de páginas: " + numeroPaginas + ", Número de Referencia: ZZZ" + ", Número de veces prestado: " + vecesPrestado + ", Es un libro de texto: " + libroTexto;
+            detalles = "Titulo del libro: " + titulo + ", Autor del libro: " + autor + ", Número de páginas: " + numeroPaginas + ", Número de Referencia: " + numeroReferencia + ", Número de veces prestado: " + vecesPrestado + ", Es un libro de texto: " + libroTexto;
         }
         return detalles;
     }
