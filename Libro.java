@@ -15,17 +15,19 @@ public class Libro {
     private int numeroPaginas;
     private String numeroReferencia;
     private int vecesPrestado;
+    private boolean esLibroDeTexto;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int paginasLibro)
+    public Libro(String autorLibro, String tituloLibro, int paginasLibro, boolean libroDeTexto)
     {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = paginasLibro;
         numeroReferencia = "";
         vecesPrestado = 0;
+        esLibroDeTexto = libroDeTexto;
     }
     
     public String getNombreAutor(){
@@ -48,6 +50,10 @@ public class Libro {
         return vecesPrestado;
     }
     
+    public boolean esLibroDeTexto(){
+        return esLibroDeTexto;
+    }
+    
     public void setNumeroReferencia(String numeroRef){
         this.numeroReferencia = numeroRef;
         if (numeroRef.length() >= 3){
@@ -59,7 +65,7 @@ public class Libro {
         }
     }
     
-    public void setVecesPrestado(){
+    public void prestarLibro(){
         vecesPrestado += 1;
     }
     
@@ -77,11 +83,18 @@ public class Libro {
     
     public String getDetalles(){
         String detalles = "";
+        String libroTexto = "";
+        if (esLibroDeTexto == true){
+            libroTexto = "Si";
+        }
+        else{
+            libroTexto = "No"; 
+        }
         if (numeroReferencia != ""){
-            detalles ="Titulo del libro: " + titulo + ", Autor del libro: " + autor + ", Número de páginas: " + numeroPaginas + ", Número de Referencia: " + numeroReferencia + ", Número de veces prestado: " + vecesPrestado;
+            detalles ="Titulo del libro: " + titulo + ", Autor del libro: " + autor + ", Número de páginas: " + numeroPaginas + ", Número de Referencia: " + numeroReferencia + ", Número de veces prestado: " + vecesPrestado + ", Es un libro de texto: " + libroTexto;
         } 
         else {
-           detalles ="Titulo del libro: " + titulo + ", Autor del libro: " + autor + ", Número de páginas: " + numeroPaginas + ", Número de Referencia: ZZZ" + ", Número de veces prestado: " + vecesPrestado;
+           detalles ="Titulo del libro: " + titulo + ", Autor del libro: " + autor + ", Número de páginas: " + numeroPaginas + ", Número de Referencia: ZZZ" + ", Número de veces prestado: " + vecesPrestado + ", Es un libro de texto: " + libroTexto;
         }
         return detalles;
     }
