@@ -14,6 +14,7 @@ public class Libro {
     private String titulo;
     private int numeroPaginas;
     private String numeroReferencia;
+    private int vecesPrestado;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -24,6 +25,7 @@ public class Libro {
         titulo = tituloLibro;
         numeroPaginas = paginasLibro;
         numeroReferencia = "";
+        vecesPrestado = 0;
     }
     
     public String getNombreAutor(){
@@ -42,6 +44,10 @@ public class Libro {
         return numeroReferencia;
     }
     
+    public int getVecesPrestado(){
+        return vecesPrestado;
+    }
+    
     public void setNumeroReferencia(String numeroRef){
         this.numeroReferencia = numeroRef;
         if (numeroRef.length() >= 3){
@@ -51,6 +57,10 @@ public class Libro {
             System.out.println("No se ha podido modificar el número de referencia, se deben introducir al menos 3 caracteres");
             numeroReferencia = "";
         }
+    }
+    
+    public void setVecesPrestado(){
+        vecesPrestado += 1;
     }
     
     public void imprimeAutor(){
@@ -68,10 +78,10 @@ public class Libro {
     public String getDetalles(){
         String detalles = "";
         if (numeroReferencia != ""){
-           detalles ="Titulo del libro: " + titulo + ", Autor del libro: " + autor + ", Número de páginas: " + numeroPaginas + ", Número de Referencia: " + numeroReferencia;
+            detalles ="Titulo del libro: " + titulo + ", Autor del libro: " + autor + ", Número de páginas: " + numeroPaginas + ", Número de Referencia: " + numeroReferencia + ", Número de veces prestado: " + vecesPrestado;
         } 
         else {
-           detalles ="Titulo del libro: " + titulo + ", Autor del libro: " + autor + ", Número de páginas: " + numeroPaginas + ", Número de Referencia: ZZZ";
+           detalles ="Titulo del libro: " + titulo + ", Autor del libro: " + autor + ", Número de páginas: " + numeroPaginas + ", Número de Referencia: ZZZ" + ", Número de veces prestado: " + vecesPrestado;
         }
         return detalles;
     }
