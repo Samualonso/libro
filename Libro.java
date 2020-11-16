@@ -98,10 +98,7 @@ public class Libro {
         else{
             libroTexto = "No"; 
         }
-        
-        if (numeroReferencia != ""){
-            detalles = "Titulo del libro: " + titulo + ", Autor del libro: " + autor + ", Número de páginas: " + numeroPaginas + ", Número de Referencia: " + numRef + ", Número de veces prestado: " + vecesPrestado + ", Es un libro de texto: " + libroTexto;
-        }
+        detalles = "Titulo del libro: " + titulo + ", Autor del libro: " + autor + ", Número de páginas: " + numeroPaginas + ", Número de Referencia: " + numRef + ", Número de veces prestado: " + vecesPrestado + ", Es un libro de texto: " + libroTexto;
         return detalles;
     }
 }
